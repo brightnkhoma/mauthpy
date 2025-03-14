@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'django.contrib.staticfiles',
 ]
+CSRF_TRUSTED_ORIGINS = ['https://mauthpy-4.onrender.com']
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
