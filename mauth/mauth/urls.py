@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/',views.register ),
     path('login/',views.login ),
-    path('otp/',views.verifyOTP ),
+    path('otp/',views.otp ),
     path('simregister/',views.registerPhoneNumber ),
     path('statement/answer/',views.getStatementAnswer ),
     path('reregister/',views.reregister ),

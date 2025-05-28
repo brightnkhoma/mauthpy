@@ -299,6 +299,20 @@ def verifyUser(request):
         print(e)
         return toJsonResponse({"status" : False,"message" : "user unrecognized"})
 
+@csrf_exempt
+def otp(request):
+    try:
+        if request.method == "POST":
+            data = json.loads(request.body.decode())
+            otp = data.get("otp")
+            email = data.get("email")
+            newOtp = OTP()
+            newOtp.simpleOTP(to=email,otp=otp)
+            return toJsonResponse({"status" : True,"message" : "otp sent"})
+    except Exception as e:
+        print(e)
+        return toJsonResponse({"status" : False,"message" : "Failed to send otp"})
+
 
 
 @csrf_exempt

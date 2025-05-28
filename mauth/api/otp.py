@@ -46,6 +46,21 @@ class OTP:
         except Exception as e:
             print(e)
             return False
+        
+
+    def simpleOTP (self, to : str, otp : str):
+        try:
+            msg = EmailMessage()
+            msg['Subject'] = "mAuth verification code"
+            msg['From'] = self.from_email
+            msg['To'] = to
+            msg.set_content('Your OTP is '+ otp)
+            self.server.send_message(msg)
+            return True
+        except Exception as e:
+            print(e)
+            return False
+
 
     def verifyOTP(self,id : str,otp: str):        
         try:
